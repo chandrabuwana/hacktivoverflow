@@ -7,4 +7,5 @@ router.post('/',answer.insertAnswer)
 router.get('/',answer.viewAnswer)
 
 router.delete('/:id',answer.deleteAnswer)
+
 module.exports = router;

@@ -56,4 +56,5 @@ module.exports = {
   insertQuestion,
   viewQuestion,
   deleteQuestion,
-  editQuestion};
+  editQuestion
+};
