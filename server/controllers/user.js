@@ -43,7 +43,7 @@ var findUser = (req, res) => {
         username: data.username,
         name: data.name
       }, process.env.SECRET_KEY)
-      res.send({token})
+      res.send({token,authorId:data._id})
     }
     else {
       console.log("Invalid Password");

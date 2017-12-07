@@ -1,4 +1,7 @@
 var jwt = require('jsonwebtoken');
+var answer = require('../models/answer')
+var question = require('../models/question')
+const ObjectId = require('mongoose').ObjectId
 require('dotenv').config()
 
 const isLogin = (req, res, next) => {
@@ -13,16 +16,35 @@ const isLogin = (req, res, next) => {
   })
 }
 
-const authUser = (req, res, next) => {
-  if (req.headers._id == req._id || req.headers.id == req._id)  {
-    next()
-  }
-  else {
-    res.send("you cant access this data!")
-  }
+const authById = (req, res, next) => {
+  question.findById({
+    _id: req.params.id
+  })
+  .then((dataQuestion)=>{
+    if (dataQuestion.author == req.id)  {
+      next()
+    }
+    else {
+      res.send("you cant access this data!")
+    }
+  })
+}
+
+const authAnswer=(req,res,next)=>{
+  answer.findById({
+    _id:req.params.id
+  })
+  .then((dataAnswer)=>{
+    if(dataAnswer.author ==req.id){
+      next()
+    }else{
+      res.send("you cant acces Data ANswer")
+    }
+  })
 }
 
 module.exports = {
   isLogin,
-  authUser
+  authById,
+  authAnswer
 }

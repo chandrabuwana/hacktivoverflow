@@ -37,8 +37,9 @@ export default {
         password: self.login.password
       })
       .then(response => {
-        console.log('===========', response.data.token)
+        console.log('===========', response.data)
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('authorId', response.data.authorId)
         this.$router.push('/home')
       })
       .catch(err => {
@@ -51,7 +52,7 @@ export default {
 <style>
 @import url(https://zavoloklom.github.io/material-design-iconic-font/css/docs.md-iconic-font.min.css);
 body {
-  background: #ffd54f;
+  background: #3574e0;
   text-align: center;
 }
 

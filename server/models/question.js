@@ -1,18 +1,27 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema,
-ObjectId=Schema.ObjectId
-var User = require('../models/user')
+ObjectId=Schema.Types.ObjectId
+// var User = require('../models/user')
 
 var questionSchema = new Schema({
   title: String,
   content: String,
-  author:{ type:Schema.ObjectId, ref : User},
-  upvotes:[{type:Schema.ObjectId, ref: User}],
-  downvotes:[{type:Schema.ObjectId, ref: User}]
+  author:{ 
+    type: ObjectId,
+    ref : 'user'
+  },
+  voter: [{
+    type: ObjectId,
+    ref: 'user'
+  }],
+  answerId:[{
+    type:ObjectId,
+    ref:'answer'
+  }]
 },{
   timestamps: true
 })
 
-var Question= mongoose.model('Question',questionSchema)
+var question= mongoose.model('question',questionSchema)
 
-module.exports = Question;
+module.exports = question;

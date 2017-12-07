@@ -1,12 +1,13 @@
 <template>
 <div>
-  <div class="alert alert-dismissible alert-warning">
-      <h1>HacktivOverflow</h1>
-      <button @click="logout" class="btn btn-warning" type="submit">Logout</button>
-    <br>
-      <br>
-      <router-link to="/home" class="btn btn-danger">Home</router-link>
-  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="collapse navbar-collapse" id="navbarColor01">
+    <a class="navbar-brand" href="#">HacktivOverflow</a>
+    <router-link to="/home" class="btn btn-danger">Home</router-link>
+    <button @click="logout" class="btn btn-warning" type="submit">Logout</button>
+    </div>
+  </a>
+  </nav>
 </div>
 </template>
 
@@ -22,5 +23,8 @@ export default {
 </script>
 
 <style>
-
+  .navbar{
+    margin: 10px;
+    height: 5px
+  }
 </style>

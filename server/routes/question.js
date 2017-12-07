@@ -6,7 +6,13 @@ var question = require('../controllers/question')
 
 router.post('/',question.insertQuestion)
 
+router.put('/up/:id',question.upvote)
+
+router.put('/down/:id',question.downVote)
+
 router.get('/',question.viewQuestion)
+
+router.get('/:id',question.viewOneQuestion)
 
 router.delete('/:id',question.deleteQuestion)
 

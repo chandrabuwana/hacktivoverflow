@@ -30,12 +30,12 @@ export default new Router({
           component: Formquestion
         },
         {
-          path: 'question/:id',
+          path: ':id',
           component: Listanswer,
           props: true
         }
       ]
     },
-   
+
   ]
 })
